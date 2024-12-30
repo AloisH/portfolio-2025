@@ -1,6 +1,6 @@
 <template>
   <header class="border-b">
-    <div class="p-4 mx-16 lg:mx-64 border-x flex justify-between items-center">
+    <div class="p-4 lg:mx-64 lg:border-x flex justify-between items-center">
       <h1 class="text-xl">Atelier Heloir</h1>
       <div class="flex gap-4">
         <a

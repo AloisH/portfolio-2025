@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   portfolio-2025:
-    build: .
+    image: ghcr.io/aloish/portfolio-2025:main
     container_name: portfolio-2025
     ports:
       - 3000:3000
