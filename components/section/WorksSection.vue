@@ -4,6 +4,7 @@ import SectionTemplate from "../SectionTemplate.vue";
 
 <template>
   <SectionTemplate id="works">
+    <h1 class="text-gray-500 font-semibold py-2 px-4">Works</h1>
     <div class="px-4 py-4 border-b border-dashed">
       <div class="flex gap-4 items-start justify-between">
         <div>

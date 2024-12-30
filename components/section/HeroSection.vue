@@ -1,5 +1,6 @@
 <template>
   <SectionTemplate>
+    <h1 class="text-gray-500 font-semibold py-2 px-4">HeroSection</h1>
     <div class="px-4 py-32">
       <h1 class="text-4xl font-semibold">Aloïs Heloir</h1>
       <h2 class="text-xl">Teamlead & Senior Fullstack Developer</h2>
