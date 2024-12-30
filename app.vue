@@ -5,6 +5,17 @@ import HeroSection from "./components/section/HeroSection.vue";
 import TestimonialSection from "./components/section/TestimonialSection.vue";
 import WorksSection from "./components/section/WorksSection.vue";
 import SectionTemplate from "./components/SectionTemplate.vue";
+
+useHead({
+  title: "Aloïs Heloir - Portfolio 2025",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Aloïs Heloir is a Teamlead & Senior Fullstack Developer. He is passionate about building innovative solutions that make a difference in the world",
+    },
+  ],
+});
 </script>
 
 <template>

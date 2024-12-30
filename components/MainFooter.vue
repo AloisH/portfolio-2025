@@ -7,6 +7,7 @@
           href="https://github.com/aloish"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Github link"
         >
           <Icon
             name="uil:github"
@@ -18,6 +19,7 @@
           href="https://www.linkedin.com/in/alois-heloir/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Linkedin link"
         >
           <Icon
             name="uil:linkedin"
