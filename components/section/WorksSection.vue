@@ -8,14 +8,13 @@ import SectionTemplate from "../SectionTemplate.vue";
     <div class="px-4 py-4 border-b border-dashed">
       <div class="flex gap-4 items-start justify-between">
         <div>
-          <h1 class="text-xl font-semibold">Team Lead & Web Developer</h1>
+          <h1 class="text-xl font-semibold">Tech lead & Web Developer</h1>
           <p class="text-xl">Ringana</p>
         </div>
         <div>May 2024 - Present</div>
       </div>
       <p class="mt-4">
-        Leading a team of 4 developers to build the e-commerce website of
-        Ringana.
+        As a Tech Lead, leading and collaborating with a team of 4 developers to build the e-commerce website of Ringana.
         <br />
         • Fixing over 100 bugs and improving the functionality of the website
         <br />
