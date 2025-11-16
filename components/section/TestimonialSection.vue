@@ -3,7 +3,7 @@
     <h1 class="text-gray-500 font-semibold py-2 px-4">Testimonials</h1>
     <div class="grid lg:grid-cols-2 gap-2">
       <div
-        class="lg:border-r border-b lg:border-b-0 p-4 flex flex-col justify-between"
+        class="lg:border-r lg:border-gray-200 border-b border-gray-200 lg:border-b-0 p-4 flex flex-col justify-between"
       >
         <p>
           It is my pleasure to recommend Alois Heloir as an exceptional software

@@ -5,7 +5,7 @@ import SectionTemplate from "../SectionTemplate.vue";
 <template>
   <SectionTemplate id="works">
     <h1 class="text-gray-500 font-semibold py-2 px-4">Works</h1>
-    <div class="px-4 py-4 border-b border-dashed">
+    <div class="px-4 py-4 border-b border-dashed border-gray-200">
       <div class="flex gap-4 items-start justify-between">
         <div>
           <h1 class="text-xl font-semibold">Tech lead & Web Developer</h1>
@@ -22,7 +22,7 @@ import SectionTemplate from "../SectionTemplate.vue";
       </p>
     </div>
 
-    <div class="px-4 py-4 border-b border-dashed">
+    <div class="px-4 py-4 border-b border-dashed border-gray-200">
       <div class="flex gap-4 items-start justify-between">
         <div>
           <h1 class="text-xl font-semibold">Software Engineer</h1>
@@ -37,7 +37,7 @@ import SectionTemplate from "../SectionTemplate.vue";
       </p>
     </div>
 
-    <div class="px-4 py-4 border-b border-dashed">
+    <div class="px-4 py-4 border-b border-dashed border-gray-200">
       <div class="flex gap-4 items-start justify-between">
         <div>
           <h1 class="text-xl font-semibold">Software Engineer</h1>
@@ -53,7 +53,7 @@ import SectionTemplate from "../SectionTemplate.vue";
       </p>
     </div>
 
-    <div class="px-4 py-4 border-b border-dashed">
+    <div class="px-4 py-4 border-b border-dashed border-gray-200">
       <div class="flex gap-4 items-start justify-between">
         <div>
           <h1 class="text-xl font-semibold">YAKA - Programming Assistant</h1>

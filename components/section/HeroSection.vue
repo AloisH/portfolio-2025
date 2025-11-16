@@ -15,7 +15,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <button class="border hover:bg-slate-100 px-4 py-2">
+          <button class="border border-gray-200 hover:bg-slate-100 px-4 py-2">
             Contact me
           </button>
         </a>
