@@ -4,7 +4,10 @@
       Skip to main content
     </a>
     <div class="px-4 py-3 lg:mx-80 lg:border-x lg:border-gray-100 flex justify-between items-center">
-      <h1 class="text-lg font-medium">Atelier Heloir</h1>
+      <div class="flex items-center gap-2">
+        <img src="/logo.svg" alt="H Logo" class="w-8 h-8" />
+        <h1 class="text-lg font-medium">Atelier Heloir</h1>
+      </div>
       <div class="flex gap-3">
         <a
           href="https://github.com/aloish"

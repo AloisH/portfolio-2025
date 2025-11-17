@@ -17,13 +17,16 @@ useHead({
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: "Aloïs Heloir - Portfolio 2025" },
     { name: "twitter:description", content: "Teamlead & Senior Fullstack Developer" },
-    { name: "theme-color", content: "#000000" }
+    { name: "theme-color", content: "#3b82f6" }
+  ],
+  link: [
+    { rel: 'icon', type: 'image/svg+xml', href: '/logo-dark.svg' }
   ]
 });
 </script>
 
 <template>
-  <div class="bg-white">
+  <div class="bg-white scroll-smooth">
     <MainHeader />
 
     <main id="main-content">

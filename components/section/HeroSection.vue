@@ -2,7 +2,11 @@
   <SectionTemplate>
     <div class="px-4 py-40">
       <div class="animate-fade-in">
-        <div class="inline-block px-3 py-1 mb-6 text-sm font-medium text-accent-600 bg-accent-50 rounded-full">
+        <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 text-sm font-medium text-accent-600 bg-accent-50 border border-accent-200 rounded-full">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
           Available for opportunities
         </div>
         <h1 class="text-5xl lg:text-6xl font-semibold tracking-tight bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
