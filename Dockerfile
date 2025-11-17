@@ -15,9 +15,10 @@ COPY --from=install /temp/node_modules node_modules
 COPY . .
 ENV NODE_ENV=production
 RUN bun run build
+RUN rm -rf .output/server/node_modules
+RUN bun install --cwd .output/server/
 
 FROM base AS release
-COPY --chown=bun:bun --from=install /temp/node_modules node_modules
 COPY --chown=bun:bun --from=prerelease /usr/src/app/.output .
 
 USER bun
