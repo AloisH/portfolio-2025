@@ -1,17 +1,21 @@
 <template>
-  <header class="border-b border-gray-200">
-    <div class="p-4 lg:mx-64 lg:border-x lg:border-gray-200 flex justify-between items-center">
-      <h1 class="text-xl">Atelier Heloir</h1>
-      <div class="flex gap-4">
+  <header class="border-b border-gray-100 bg-white">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+      Skip to main content
+    </a>
+    <div class="px-4 py-3 lg:mx-80 lg:border-x lg:border-gray-100 flex justify-between items-center">
+      <h1 class="text-lg font-medium">Atelier Heloir</h1>
+      <div class="flex gap-3">
         <a
           href="https://github.com/aloish"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Github link"
+          class="hover:opacity-70 transition-opacity"
         >
           <Icon
             name="uil:github"
-            class="w-8 h-8 text-gray-500 hover:text-gray-700 cursor-pointer"
+            class="w-6 h-6 text-gray-700"
           />
         </a>
 
@@ -19,10 +23,12 @@
           href="https://www.linkedin.com/in/alois-heloir/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="LinkedIn link"
+          class="hover:opacity-70 transition-opacity"
         >
           <Icon
             name="uil:linkedin"
-            class="w-8 h-8 text-gray-500 hover:text-gray-700 cursor-pointer"
+            class="w-6 h-6 text-gray-700"
           />
         </a>
       </div>

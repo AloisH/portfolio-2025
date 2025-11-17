@@ -1,7 +1,19 @@
-version: "3.3"
 services:
   portfolio-2025:
     image: ghcr.io/aloish/portfolio-2025:main
     container_name: portfolio-2025
     ports:
       - 3000:3000
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          memory: 256M
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 3s
+      retries: 3

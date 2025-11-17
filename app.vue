@@ -1,36 +1,36 @@
 <script setup lang="ts">
-import MainFooter from "./components/MainFooter.vue";
-import ContactSection from "./components/section/ContactSection.vue";
-import HeroSection from "./components/section/HeroSection.vue";
-import TestimonialSection from "./components/section/TestimonialSection.vue";
-import WorksSection from "./components/section/WorksSection.vue";
-import SectionTemplate from "./components/SectionTemplate.vue";
-
 useHead({
   title: "Aloïs Heloir - Portfolio 2025",
+  htmlAttrs: {
+    lang: 'en'
+  },
   meta: [
     {
       name: "description",
       content:
         "Aloïs Heloir is a Teamlead & Senior Fullstack Developer. He is passionate about building innovative solutions that make a difference in the world",
     },
-  ],
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+    { property: "og:title", content: "Aloïs Heloir - Portfolio 2025" },
+    { property: "og:description", content: "Teamlead & Senior Fullstack Developer. Building innovative solutions with Vue, Angular, NodeJS, C++, and PostgreSQL." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Aloïs Heloir - Portfolio 2025" },
+    { name: "twitter:description", content: "Teamlead & Senior Fullstack Developer" },
+    { name: "theme-color", content: "#000000" }
+  ]
 });
 </script>
 
 <template>
-  <div>
+  <div class="bg-white">
     <MainHeader />
 
-    <main>
-      <HeroSection />
-      <SectionTemplate class="h-16" />
-      <WorksSection />
-      <SectionTemplate class="h-16" />
-      <TestimonialSection />
-      <SectionTemplate class="h-16" />
-      <ContactSection />
-      <SectionTemplate class="h-16" />
+    <main id="main-content">
+      <SectionHeroSection />
+      <SectionWorksSection />
+      <SectionTestimonialSection />
+      <SectionContactSection />
     </main>
 
     <MainFooter />
