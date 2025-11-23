@@ -67,8 +67,6 @@ const { resolvedTheme } = useTheme()
           Get in touch
         </UiButton>
       </div>
-
-      <GitHubStats />
     </div>
   </SectionTemplate>
 </template>

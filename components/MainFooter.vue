@@ -8,8 +8,15 @@ const { resolvedTheme } = useTheme()
     resolvedTheme === 'dark' ? 'border-gray-800 bg-black' : 'border-gray-200 bg-white'
   ]">
     <div :class="[
-      'px-4 py-8 lg:mx-80 lg:border-x flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 transition-colors duration-300',
+      'px-4 py-6 lg:mx-80 lg:border-x transition-colors duration-300',
       resolvedTheme === 'dark' ? 'lg:border-gray-800' : 'lg:border-gray-200'
+    ]">
+      <GitHubStats />
+    </div>
+
+    <div :class="[
+      'px-4 py-8 lg:mx-80 lg:border-x border-t flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 transition-colors duration-300',
+      resolvedTheme === 'dark' ? 'lg:border-gray-800 border-gray-800' : 'lg:border-gray-200 border-gray-200'
     ]">
       <div>
         <div class="text-lg font-medium font-mono mb-1">Atelier Heloir</div>
