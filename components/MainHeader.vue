@@ -31,17 +31,17 @@ const sections = [
       'px-4 py-3 lg:mx-80 lg:border-x flex justify-between items-center',
       resolvedTheme === 'dark' ? 'lg:border-gray-800' : 'lg:border-gray-200'
     ]">
-      <div class="flex items-center gap-2">
+      <NuxtLink to="/" class="flex items-center gap-2 hover:opacity-70 transition-opacity duration-200">
         <img src="/logo.svg" alt="H Logo" class="w-8 h-8" />
         <h1 class="text-lg font-medium font-mono">Atelier Heloir</h1>
-      </div>
+      </NuxtLink>
 
       <!-- Navigation -->
       <nav class="hidden md:flex gap-6 items-center">
-        <a
+        <NuxtLink
           v-for="section in sections"
           :key="section.id"
-          :href="`#${section.id}`"
+          :to="`/#${section.id}`"
           :class="[
             'text-sm font-medium transition-all duration-200 hover:scale-105',
             activeSection === section.id
@@ -50,7 +50,7 @@ const sections = [
           ]"
         >
           {{ section.label }}
-        </a>
+        </NuxtLink>
       </nav>
 
       <div class="flex gap-3 items-center">

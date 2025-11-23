@@ -4,8 +4,13 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxt/icon', '@nuxt/image', '@vueuse/motion/nuxt'],
+  modules: ['@nuxt/icon', '@nuxt/image', '@vueuse/motion/nuxt', 'nuxt-shiki'],
   css: ['~/app.css'],
+
+  shiki: {
+    bundledLangs: ['bash', 'zsh', 'fish', 'json', 'yaml', 'toml', 'vim', 'markdown', 'typescript', 'javascript'],
+    bundledThemes: ['vitesse-dark', 'vitesse-light']
+  },
 
   experimental: {
     payloadExtraction: false,

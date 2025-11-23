@@ -22,7 +22,20 @@ const { resolvedTheme } = useTheme()
         <div class="text-lg font-medium font-mono mb-1">Atelier Heloir</div>
         <div class="text-sm text-gray-500">© 2025 All rights reserved</div>
       </div>
-      <div class="flex gap-3">
+      <div class="flex gap-4 items-center">
+        <NuxtLink
+          to="/dotenv"
+          :class="[
+            'text-sm hover:opacity-70 transition-colors duration-200 px-1',
+            resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+          ]"
+        >
+          .dotenv
+        </NuxtLink>
+        <div :class="[
+          'w-px h-6 flex-shrink-0',
+          resolvedTheme === 'dark' ? 'bg-gray-700' : 'bg-gray-300'
+        ]"></div>
         <a
           href="https://github.com/aloish"
           target="_blank"
