@@ -226,16 +226,11 @@ const claudeSettings = `{
           </div>
         </div>
 
-        <ConfigBlock
-          filename="CLAUDE.md"
-          lang="markdown"
-          :code="claudeConfig"
-        />
-
-        <ConfigBlock
-          filename="settings.json"
-          lang="json"
-          :code="claudeSettings"
+        <ConfigTabs
+          :tabs="[
+            { filename: 'CLAUDE.md', lang: 'markdown', code: claudeConfig },
+            { filename: 'settings.json', lang: 'json', code: claudeSettings }
+          ]"
         />
       </div>
     </section>
