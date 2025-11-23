@@ -1,5 +1,11 @@
 <script setup lang="ts">
-useHead({
+const { resolvedTheme, initTheme } = useTheme()
+
+onMounted(() => {
+  initTheme()
+})
+
+useHead(() => ({
   title: "Aloïs Heloir - Portfolio 2025",
   htmlAttrs: {
     lang: 'en'
@@ -17,16 +23,20 @@ useHead({
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: "Aloïs Heloir - Portfolio 2025" },
     { name: "twitter:description", content: "Teamlead & Senior Fullstack Developer" },
-    { name: "theme-color", content: "#3b82f6" }
+    { name: "theme-color", content: resolvedTheme.value === 'dark' ? "#000000" : "#ffffff" }
   ],
   link: [
     { rel: 'icon', type: 'image/svg+xml', href: '/logo-dark.svg' }
   ]
-});
+}))
 </script>
 
 <template>
-  <div class="bg-white scroll-smooth">
+  <div :class="[
+    'scroll-smooth relative transition-colors duration-300',
+    resolvedTheme === 'dark' ? 'bg-black text-white' : 'bg-white text-gray-900'
+  ]">
+    <GridBackground />
     <MainHeader />
 
     <main id="main-content">

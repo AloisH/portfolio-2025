@@ -1,2 +1,28 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes rainbow-border {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.rainbow-border {
+  position: relative;
+  background: linear-gradient(90deg,
+    #06b6d4 0%,
+    #3b82f6 25%,
+    #8b5cf6 50%,
+    #d946ef 75%,
+    #06b6d4 100%
+  );
+  background-size: 200% 200%;
+  animation: rainbow-border 3s linear infinite;
+}

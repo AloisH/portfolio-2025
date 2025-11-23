@@ -1,16 +1,38 @@
+<script setup lang="ts">
+const { resolvedTheme } = useTheme()
+</script>
+
 <template>
-  <SectionTemplate>
+  <SectionTemplate id="testimonials">
     <div class="px-4 py-8">
-      <h2 class="text-sm text-gray-500 font-semibold tracking-wide mb-8">02 TESTIMONIALS</h2>
+      <h2 :class="[
+        'text-sm font-semibold tracking-widest mb-8 font-mono transition-colors duration-300',
+        resolvedTheme === 'dark' ? 'text-gray-500' : 'text-gray-600'
+      ]">
+        <span :class="resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-700'">02</span>
+        <span class="text-gray-600">//</span> testimonials.json
+      </h2>
 
       <div class="grid lg:grid-cols-2 gap-8">
         <!-- Testimonial 1 -->
-        <div class="flex flex-col gap-6">
+        <div
+          v-motion
+          :initial="{ opacity: 0, y: 20 }"
+          :visible-once="{ opacity: 1, y: 0 }"
+          :duration="500"
+          :delay="100"
+          :class="[
+            'flex flex-col gap-6 border p-6 backdrop-blur-sm transition-all duration-300',
+            resolvedTheme === 'dark'
+              ? 'border-gray-800 bg-gray-900/30 hover:border-gray-700'
+              : 'border-gray-200 bg-gray-50/50 hover:border-gray-300'
+          ]"
+        >
           <div class="flex-1">
-            <svg class="w-10 h-10 text-black mb-4" fill="currentColor" viewBox="0 0 24 24">
+            <svg :class="['w-10 h-10 mb-4 transition-colors duration-300', resolvedTheme === 'dark' ? 'text-gray-600' : 'text-gray-400']" fill="currentColor" viewBox="0 0 24 24">
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
             </svg>
-            <p class="text-gray-900 leading-relaxed text-base">
+            <p :class="['leading-relaxed text-base transition-colors duration-300', resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700']">
               It is my pleasure to recommend Alois Heloir as an exceptional software
               developer. From the moment Alois joined our team, his outstanding
               technical skills significantly elevated our group's capabilities. His
@@ -22,29 +44,47 @@
               to excel in a dynamic and fast-paced environment.
             </p>
           </div>
-          <div class="flex gap-3 items-center pt-6 border-t border-gray-200">
+          <div :class="[
+            'flex gap-3 items-center pt-6 border-t transition-colors duration-300',
+            resolvedTheme === 'dark' ? 'border-gray-800' : 'border-gray-200'
+          ]">
             <NuxtImg
               src="/fabio-diso.png"
               width="48"
               height="48"
               alt="Portrait photo of Fabio Diso"
               loading="lazy"
-              class="rounded-full w-12 h-12"
+              :class="[
+                'rounded-full w-12 h-12 border-2',
+                resolvedTheme === 'dark' ? 'border-gray-700' : 'border-gray-300'
+              ]"
             />
             <div>
-              <div class="font-semibold text-gray-900">Fabio Diso</div>
-              <div class="text-sm text-gray-500">Product Owner</div>
+              <div :class="['font-semibold transition-colors duration-300', resolvedTheme === 'dark' ? 'text-white' : 'text-gray-900']">Fabio Diso</div>
+              <div class="text-sm text-gray-500 font-mono">Product Owner</div>
             </div>
           </div>
         </div>
 
         <!-- Testimonial 2 -->
-        <div class="flex flex-col gap-6">
+        <div
+          v-motion
+          :initial="{ opacity: 0, y: 20 }"
+          :visible-once="{ opacity: 1, y: 0 }"
+          :duration="500"
+          :delay="200"
+          :class="[
+            'flex flex-col gap-6 border p-6 backdrop-blur-sm transition-all duration-300',
+            resolvedTheme === 'dark'
+              ? 'border-gray-800 bg-gray-900/30 hover:border-gray-700'
+              : 'border-gray-200 bg-gray-50/50 hover:border-gray-300'
+          ]"
+        >
           <div class="flex-1">
-            <svg class="w-10 h-10 text-black mb-4" fill="currentColor" viewBox="0 0 24 24">
+            <svg :class="['w-10 h-10 mb-4 transition-colors duration-300', resolvedTheme === 'dark' ? 'text-gray-600' : 'text-gray-400']" fill="currentColor" viewBox="0 0 24 24">
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
             </svg>
-            <p class="text-gray-900 leading-relaxed text-base">
+            <p :class="['leading-relaxed text-base transition-colors duration-300', resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700']">
               I had the pleasure of working with Aloïs, where he consistently
               demonstrated strong expertise in web development. Aloïs is highly
               skilled in several web frameworks, making him versatile and adaptable
@@ -55,18 +95,24 @@
               recommend Aloïs for any web development role.
             </p>
           </div>
-          <div class="flex gap-3 items-center pt-6 border-t border-gray-200">
+          <div :class="[
+            'flex gap-3 items-center pt-6 border-t transition-colors duration-300',
+            resolvedTheme === 'dark' ? 'border-gray-800' : 'border-gray-200'
+          ]">
             <NuxtImg
               src="/loup-dallier.png"
               width="48"
               height="48"
               alt="Portrait photo of Loup Dallier"
               loading="lazy"
-              class="rounded-full w-12 h-12"
+              :class="[
+                'rounded-full w-12 h-12 border-2',
+                resolvedTheme === 'dark' ? 'border-gray-700' : 'border-gray-300'
+              ]"
             />
             <div>
-              <div class="font-semibold text-gray-900">Loup Dallier</div>
-              <div class="text-sm text-gray-500">Software Engineer</div>
+              <div :class="['font-semibold transition-colors duration-300', resolvedTheme === 'dark' ? 'text-white' : 'text-gray-900']">Loup Dallier</div>
+              <div class="text-sm text-gray-500 font-mono">Software Engineer</div>
             </div>
           </div>
         </div>

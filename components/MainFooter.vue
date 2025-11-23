@@ -1,8 +1,18 @@
+<script setup lang="ts">
+const { resolvedTheme } = useTheme()
+</script>
+
 <template>
-  <footer class="border-t border-gray-100 bg-white">
-    <div class="px-4 py-8 lg:mx-80 lg:border-x lg:border-gray-100 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+  <footer :class="[
+    'border-t transition-colors duration-300',
+    resolvedTheme === 'dark' ? 'border-gray-800 bg-black' : 'border-gray-200 bg-white'
+  ]">
+    <div :class="[
+      'px-4 py-8 lg:mx-80 lg:border-x flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 transition-colors duration-300',
+      resolvedTheme === 'dark' ? 'lg:border-gray-800' : 'lg:border-gray-200'
+    ]">
       <div>
-        <div class="text-lg font-medium mb-1">Atelier Heloir</div>
+        <div class="text-lg font-medium font-mono mb-1">Atelier Heloir</div>
         <div class="text-sm text-gray-500">© 2025 All rights reserved</div>
       </div>
       <div class="flex gap-3">
@@ -11,11 +21,14 @@
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Github link"
-          class="hover:opacity-70 transition-opacity"
+          class="hover:opacity-70 hover:scale-110 transition-all duration-200"
         >
           <Icon
             name="uil:github"
-            class="w-6 h-6 text-gray-700"
+            :class="[
+              'w-6 h-6',
+              resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+            ]"
           />
         </a>
 
@@ -24,11 +37,14 @@
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Linkedin link"
-          class="hover:opacity-70 transition-opacity"
+          class="hover:opacity-70 hover:scale-110 transition-all duration-200"
         >
           <Icon
             name="uil:linkedin"
-            class="w-6 h-6 text-gray-700"
+            :class="[
+              'w-6 h-6',
+              resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+            ]"
           />
         </a>
       </div>
