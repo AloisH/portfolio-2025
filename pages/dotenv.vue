@@ -22,64 +22,85 @@ useHead(() => ({
   ]
 }))
 
-const zshrcConfig = `# Path to oh-my-zsh
-export ZSH="$HOME/.oh-my-zsh"
+const fishConfig = `starship init fish | source
 
-# Theme
-ZSH_THEME="powerlevel10k/powerlevel10k"
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
 
-# Plugins
-plugins=(
-  git
-  docker
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# Aliases
-alias ls='ls --color=auto'
-alias ll='ls -lah'
-alias g='git'
-alias d='docker'
-alias dc='docker-compose'`
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH`
 
 const zedSettings = `{
-  "theme": "One Dark",
-  "buffer_font_family": "JetBrains Mono",
-  "buffer_font_size": 14,
-  "vim_mode": true,
-  "format_on_save": "on",
-  "tab_size": 2,
-  "soft_wrap": "editor_width",
-  "show_inline_completions": true,
-  "languages": {
-    "Vue": {
-      "format_on_save": "on",
-      "formatter": "prettier"
+  "agent": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-5"
     },
+    "always_allow_tool_actions": true
+  },
+  "wsl_connections": [
+    {
+      "distro_name": "Ubuntu",
+      "projects": [
+        { "paths": ["/home/alois"] },
+        { "paths": ["/home/alois/portfolio-2025"] }
+      ]
+    }
+  ],
+  "icon_theme": "Material Icon Theme",
+  "vim_mode": true,
+  "ui_font_size": 14,
+  "buffer_font_size": 16,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "GitHub Dark Default"
+  },
+  "languages": {
     "TypeScript": {
-      "format_on_save": "on",
-      "formatter": "prettier"
+      "formatter": [
+        { "code_action": "source.organizeImports" },
+        { "code_action": "source.fixAll.eslint" },
+        "prettier"
+      ]
+    },
+    "Vue.js": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": true
+      }
+    }
+  },
+  "autosave": "on_focus_change",
+  "format_on_save": "on",
+  "relative_line_numbers": true,
+  "git": {
+    "inline_blame": { "enabled": true }
+  },
+  "context_servers": {
+    "mcp-server-context7": {
+      "source": "extension",
+      "enabled": true
+    },
+    "nuxt-ui": {
+      "source": "custom",
+      "command": "mcp-remote",
+      "args": ["https://ui.nuxt.com/mcp"]
     }
   }
 }`
 
-const claudeConfig = `# Global Instructions
+const claudeConfig = `- In all interactions and commit messages, be extremely consise and sacrifice grammar for the sake of concision
 
-- Extremely concise in all interactions
-- Sacrifice grammar for concision
+## Plan
 
-## Plan Mode
+- At the end of each plan, give me a list of unresolved question to answer, if any. Make the questions extremely consise. Sacrifice grammar for the sake of consision.`
 
-- End each plan with unresolved questions
-- Keep questions extremely concise
-
-## MCP Servers
-
-- **Context7**: Up-to-date library docs
-- **GitHub**: PR/issue integration`
+const claudeSettings = `{
+  "includeCoAuthoredBy": false,
+  "alwaysThinkingEnabled": true
+}`
 </script>
 
 <template>
@@ -103,29 +124,26 @@ const claudeConfig = `# Global Instructions
         <div class="space-y-3">
           <div>
             <h3 class="font-semibold mb-1">Shell</h3>
-            <p class="opacity-70">Zsh with Oh My Zsh</p>
+            <p class="opacity-70">Fish</p>
           </div>
 
           <div>
-            <h3 class="font-semibold mb-1">Theme</h3>
-            <p class="opacity-70">Powerlevel10k</p>
+            <h3 class="font-semibold mb-1">Prompt</h3>
+            <p class="opacity-70">Starship</p>
           </div>
 
           <div>
-            <h3 class="font-semibold mb-1">Key Plugins</h3>
+            <h3 class="font-semibold mb-1">Tools</h3>
             <ul class="list-disc list-inside opacity-70 space-y-1">
-              <li>git</li>
-              <li>zsh-autosuggestions</li>
-              <li>zsh-syntax-highlighting</li>
-              <li>docker</li>
+              <li>Volta (Node version manager)</li>
             </ul>
           </div>
         </div>
 
         <ConfigBlock
-          filename=".zshrc"
-          lang="bash"
-          :code="zshrcConfig"
+          filename="config.fish"
+          lang="fish"
+          :code="fishConfig"
         />
       </div>
     </section>
@@ -142,30 +160,39 @@ const claudeConfig = `# Global Instructions
         <div class="space-y-3">
           <div>
             <h3 class="font-semibold mb-1">Theme</h3>
-            <p class="opacity-70">One Dark</p>
+            <p class="opacity-70">System (One Light / GitHub Dark Default)</p>
           </div>
 
           <div>
-            <h3 class="font-semibold mb-1">Font</h3>
-            <p class="opacity-70">JetBrains Mono</p>
+            <h3 class="font-semibold mb-1">Font Size</h3>
+            <p class="opacity-70">UI: 14 / Buffer: 16</p>
           </div>
 
           <div>
-            <h3 class="font-semibold mb-1">Key Extensions</h3>
-            <ul class="list-disc list-inside opacity-70 space-y-1">
-              <li>Vue</li>
-              <li>TypeScript</li>
-              <li>Prettier</li>
-              <li>ESLint</li>
-            </ul>
+            <h3 class="font-semibold mb-1">AI Agent</h3>
+            <p class="opacity-70">Claude Sonnet 4.5</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold mb-1">Environment</h3>
+            <p class="opacity-70">WSL Ubuntu</p>
           </div>
 
           <div>
             <h3 class="font-semibold mb-1">Features</h3>
             <ul class="list-disc list-inside opacity-70 space-y-1">
-              <li>Vim mode enabled</li>
-              <li>Inline AI assistance</li>
-              <li>Auto-format on save</li>
+              <li>Vim mode + system clipboard</li>
+              <li>Auto-format (Prettier + ESLint)</li>
+              <li>Inline git blame</li>
+              <li>Relative line numbers</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold mb-1">MCP Servers</h3>
+            <ul class="list-disc list-inside opacity-70 space-y-1">
+              <li>Context7 (docs)</li>
+              <li>Nuxt UI</li>
             </ul>
           </div>
         </div>
@@ -189,30 +216,13 @@ const claudeConfig = `# Global Instructions
       <div class="space-y-6">
         <div class="space-y-3">
           <div>
-            <h3 class="font-semibold mb-1">Model</h3>
-            <p class="opacity-70">Claude Sonnet 4.5</p>
+            <h3 class="font-semibold mb-1">Style</h3>
+            <p class="opacity-70">Extremely concise, sacrifice grammar for brevity</p>
           </div>
 
           <div>
-            <h3 class="font-semibold mb-1">Communication Style</h3>
-            <p class="opacity-70">Extremely concise, grammar sacrificed for brevity</p>
-          </div>
-
-          <div>
-            <h3 class="font-semibold mb-1">Preferences</h3>
-            <ul class="list-disc list-inside opacity-70 space-y-1">
-              <li>Plan mode for complex tasks</li>
-              <li>Todo list for multi-step workflows</li>
-              <li>Direct execution for simple tasks</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="font-semibold mb-1">MCP Servers</h3>
-            <ul class="list-disc list-inside opacity-70 space-y-1">
-              <li>Context7 (docs)</li>
-              <li>GitHub integration</li>
-            </ul>
+            <h3 class="font-semibold mb-1">Plan Mode</h3>
+            <p class="opacity-70">End plans with concise unresolved questions</p>
           </div>
         </div>
 
@@ -220,6 +230,12 @@ const claudeConfig = `# Global Instructions
           filename="CLAUDE.md"
           lang="markdown"
           :code="claudeConfig"
+        />
+
+        <ConfigBlock
+          filename="settings.json"
+          lang="json"
+          :code="claudeSettings"
         />
       </div>
     </section>
