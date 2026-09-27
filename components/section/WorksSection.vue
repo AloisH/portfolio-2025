@@ -138,7 +138,7 @@ const works: Work[] = [
 
           <ul :class="['space-y-2 mb-4 transition-colors duration-300', resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700']">
             <li v-for="bullet in work.bullets" :key="bullet" class="flex items-start gap-2">
-              <span :class="['mt-1', resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-600']">→</span>
+              <span aria-hidden="true" :class="['shrink-0 select-none', resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-600']">→</span>
               <span>{{ bullet }}</span>
             </li>
           </ul>
