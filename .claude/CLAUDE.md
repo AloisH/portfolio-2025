@@ -117,7 +117,7 @@ bun preview     # Preview production build
 │   └── section/
 │       ├── HeroSection.vue     # Intro + CTA buttons
 │       ├── WorksSection.vue    # Employment history (7 positions)
-│       ├── ProjectsSection.vue # Protocolys featured + 6 side projects
+│       ├── ProjectsSection.vue # Protocolys featured + 12 side projects w/ GitHub/live links
 │       ├── SkillsSection.vue   # Skill groups + education + languages
 │       ├── TestimonialSection.vue # 2-column testimonials
 │       └── ContactSection.vue  # CTA with gradient
@@ -152,7 +152,7 @@ Local deployment via docker-compose pulls pre-built image.
 
 - **Hero**: Senior Full-Stack Product Engineer, summary, core stack, CTA buttons
 - **Works**: 7 positions (PflegeNavi, Ringana, Barracuda, Mantu, Padoa, EPITA, CEOS-IT)
-- **Projects**: Protocolys (featured) + Capture CLI, Mini Agentic Harness, Protocol, Stud'Asso, ImalysRCP, Bistro, ZombsCastle
+- **Projects**: Protocolys (featured) + charpente, cabane, internal-linktree, Capture CLI, Mini Agentic Harness, Protocol, Bistro, warframe-spy, GitHub PR Comment Copier, Stud'Asso, ImalysRCP, ZombsCastle (public repos on github.com/AloisH)
 - **Skills**: 8 skill groups, EPITA MSc, French/English
 - **Testimonials**: 2 endorsements with avatars
 - **Contact**: CTA section with dark gradient background
