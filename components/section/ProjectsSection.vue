@@ -110,7 +110,7 @@ const projects: Project[] = [
 ]
 
 const cardClasses = computed(() => [
-  'border transition-all duration-300 hover:-translate-y-1 p-6',
+  'border transition-[border-color,background-color,box-shadow,translate] duration-300 hover:-translate-y-1 p-6',
   resolvedTheme.value === 'dark'
     ? 'border-gray-800 hover:border-gray-700 bg-gray-900/50 hover:bg-gray-900/80 hover:shadow-lg'
     : 'border-gray-200 hover:border-gray-300 bg-white hover:bg-gray-50 hover:shadow-lg'
@@ -135,11 +135,7 @@ const tagClasses = computed(() => [
 
       <!-- Featured product -->
       <article
-        v-motion
-        :initial="{ opacity: 0, y: 20 }"
-        :visible-once="{ opacity: 1, y: 0 }"
-        :duration="500"
-        :delay="100"
+        v-motion="motionReveal(50)"
         :class="[cardClasses, 'mb-6 relative overflow-hidden']"
       >
         <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-orange-500/10 to-transparent rounded-full -mr-32 -mt-32 blur-3xl pointer-events-none" />
@@ -178,11 +174,7 @@ const tagClasses = computed(() => [
         <article
           v-for="(project, index) in projects"
           :key="project.name"
-          v-motion
-          :initial="{ opacity: 0, y: 20 }"
-          :visible-once="{ opacity: 1, y: 0 }"
-          :duration="500"
-          :delay="150 + index * 50"
+          v-motion="motionReveal((index % 3) * 75)"
           :class="[cardClasses, 'flex flex-col']"
         >
           <div class="flex items-start justify-between gap-3">

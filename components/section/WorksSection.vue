@@ -112,13 +112,9 @@ const works: Work[] = [
         <article
           v-for="(work, index) in works"
           :key="work.company"
-          v-motion
-          :initial="{ opacity: 0, y: 20 }"
-          :visible-once="{ opacity: 1, y: 0 }"
-          :duration="500"
-          :delay="100 + index * 50"
+          v-motion="motionReveal(50)"
           :class="[
-            'group border transition-all duration-300 hover:-translate-y-1 p-6',
+            'group border transition-[border-color,background-color,box-shadow,translate] duration-300 hover:-translate-y-1 p-6',
             resolvedTheme === 'dark'
               ? 'border-gray-800 hover:border-gray-700 bg-gray-900/50 hover:bg-gray-900/80 hover:shadow-lg'
               : 'border-gray-200 hover:border-gray-300 bg-white hover:bg-gray-50 hover:shadow-lg'

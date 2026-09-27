@@ -23,10 +23,7 @@ const { resolvedTheme } = useTheme()
       ]"></div>
 
       <div
-        v-motion
-        :initial="{ opacity: 0, y: 20 }"
-        :visible-once="{ opacity: 1, y: 0 }"
-        :duration="500"
+        v-motion="motionReveal(0)"
         class="relative z-10 flex flex-col lg:flex-row gap-8 items-start lg:items-center justify-between"
       >
         <div>

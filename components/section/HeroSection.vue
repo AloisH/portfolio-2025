@@ -12,10 +12,7 @@ const stack = ['TypeScript', 'React', 'React Native', 'NestJS', 'Elixir', 'Postg
       <div class="absolute bottom-1/4 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div
-        v-motion
-        :initial="{ opacity: 0, y: 20 }"
-        :visible-once="{ opacity: 1, y: 0 }"
-        :duration="500"
+        v-motion="motionReveal(0)"
       >
         <div :class="[
           'inline-flex items-center gap-2 px-3 py-1 mb-6 text-sm font-medium rounded-full backdrop-blur-sm transition-colors duration-300',
@@ -67,11 +64,7 @@ const stack = ['TypeScript', 'React', 'React Native', 'NestJS', 'Elixir', 'Postg
       </div>
 
       <div
-        v-motion
-        :initial="{ opacity: 0, y: 20 }"
-        :visible-once="{ opacity: 1, y: 0 }"
-        :duration="500"
-        :delay="100"
+        v-motion="motionReveal(100)"
         class="mt-8 flex flex-wrap gap-4"
       >
         <UiButton href="#works" variant="primary">

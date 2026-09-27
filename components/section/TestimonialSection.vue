@@ -16,13 +16,9 @@ const { resolvedTheme } = useTheme()
       <div class="grid lg:grid-cols-2 gap-8">
         <!-- Testimonial 1 -->
         <div
-          v-motion
-          :initial="{ opacity: 0, y: 20 }"
-          :visible-once="{ opacity: 1, y: 0 }"
-          :duration="500"
-          :delay="100"
+          v-motion="motionReveal(0)"
           :class="[
-            'flex flex-col gap-6 border p-6 backdrop-blur-sm transition-all duration-300',
+            'flex flex-col gap-6 border p-6 backdrop-blur-sm transition-[border-color,background-color] duration-300',
             resolvedTheme === 'dark'
               ? 'border-gray-800 bg-gray-900/30 hover:border-gray-700'
               : 'border-gray-200 bg-gray-50/50 hover:border-gray-300'
@@ -68,13 +64,9 @@ const { resolvedTheme } = useTheme()
 
         <!-- Testimonial 2 -->
         <div
-          v-motion
-          :initial="{ opacity: 0, y: 20 }"
-          :visible-once="{ opacity: 1, y: 0 }"
-          :duration="500"
-          :delay="200"
+          v-motion="motionReveal(100)"
           :class="[
-            'flex flex-col gap-6 border p-6 backdrop-blur-sm transition-all duration-300',
+            'flex flex-col gap-6 border p-6 backdrop-blur-sm transition-[border-color,background-color] duration-300',
             resolvedTheme === 'dark'
               ? 'border-gray-800 bg-gray-900/30 hover:border-gray-700'
               : 'border-gray-200 bg-gray-50/50 hover:border-gray-300'

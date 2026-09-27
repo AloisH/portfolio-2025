@@ -45,13 +45,9 @@ const languages = [
         <div
           v-for="(group, index) in skills"
           :key="group.label"
-          v-motion
-          :initial="{ opacity: 0, y: 20 }"
-          :visible-once="{ opacity: 1, y: 0 }"
-          :duration="500"
-          :delay="100 + index * 50"
+          v-motion="motionReveal((index % 2) * 75)"
           :class="[
-            'border p-6 transition-all duration-300',
+            'border p-6 transition-[border-color,background-color] duration-300',
             resolvedTheme === 'dark'
               ? 'border-gray-800 bg-gray-900/30 hover:border-gray-700'
               : 'border-gray-200 bg-gray-50/50 hover:border-gray-300'
@@ -77,13 +73,9 @@ const languages = [
 
       <!-- Education & languages -->
       <div
-        v-motion
-        :initial="{ opacity: 0, y: 20 }"
-        :visible-once="{ opacity: 1, y: 0 }"
-        :duration="500"
-        :delay="200"
+        v-motion="motionReveal(50)"
         :class="[
-          'mt-6 border p-6 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 transition-all duration-300',
+          'mt-6 border p-6 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 transition-[border-color,background-color] duration-300',
           resolvedTheme === 'dark'
             ? 'border-gray-800 bg-gray-900/50 hover:border-gray-700'
             : 'border-gray-200 bg-white hover:border-gray-300'
