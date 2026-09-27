@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const { resolvedTheme } = useTheme()
-
 useHead(() => ({
   title: ".dotenv - Configuration | Aloïs Heloir",
   htmlAttrs: {
@@ -15,7 +13,8 @@ useHead(() => ({
     { property: "og:title", content: ".dotenv - Configuration | Aloïs Heloir" },
     { property: "og:description", content: "Development environment configuration" },
     { property: "og:type", content: "website" },
-    { name: "theme-color", content: resolvedTheme.value === 'dark' ? "#000000" : "#ffffff" }
+    { name: "theme-color", content: "#ffffff", media: "(prefers-color-scheme: light)" },
+    { name: "theme-color", content: "#000000", media: "(prefers-color-scheme: dark)" }
   ],
   link: [
     { rel: 'icon', type: 'image/svg+xml', href: '/logo-dark.svg' }

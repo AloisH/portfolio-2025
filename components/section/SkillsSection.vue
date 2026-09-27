@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const { resolvedTheme } = useTheme()
 
 interface SkillGroup {
   label: string
@@ -33,11 +32,8 @@ const languages = [
 <template>
   <SectionTemplate id="skills">
     <div class="px-4 py-8">
-      <h2 :class="[
-        'text-sm font-semibold tracking-widest mb-8 font-mono transition-colors duration-300',
-        resolvedTheme === 'dark' ? 'text-gray-500' : 'text-gray-600'
-      ]">
-        <span :class="resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-700'">03</span>
+      <h2 class="text-sm font-semibold tracking-widest mb-8 font-mono transition-colors duration-300 text-gray-600 dark:text-gray-500">
+        <span class="text-gray-700 dark:text-gray-400">03</span>
         <span class="text-gray-600">//</span> skills.json
       </h2>
 
@@ -46,24 +42,16 @@ const languages = [
           v-for="(group, index) in skills"
           :key="group.label"
           v-motion="motionReveal((index % 2) * 75)"
-          :class="[
-            'border p-6 transition-[border-color,background-color] duration-300',
-            resolvedTheme === 'dark'
-              ? 'border-gray-800 bg-gray-900/30 hover:border-gray-700'
-              : 'border-gray-200 bg-gray-50/50 hover:border-gray-300'
-          ]"
+          class="border p-6 transition-[border-color,background-color] duration-300 border-gray-200 bg-gray-50/50 hover:border-gray-300 dark:border-gray-800 dark:bg-gray-900/30 dark:hover:border-gray-700"
         >
-          <h3 :class="['text-sm font-semibold font-mono mb-4 transition-colors duration-300', resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-700']">
+          <h3 class="text-sm font-semibold font-mono mb-4 transition-colors duration-300 text-gray-700 dark:text-gray-400">
             {{ group.label }}
           </h3>
           <ul class="flex flex-wrap gap-2">
             <li
               v-for="item in group.items"
               :key="item"
-              :class="[
-                'px-3 py-1 text-xs font-medium rounded-full border font-mono transition-colors duration-300',
-                resolvedTheme === 'dark' ? 'bg-gray-800 text-gray-300 border-gray-700' : 'bg-gray-100 text-gray-700 border-gray-300'
-              ]"
+              class="px-3 py-1 text-xs font-medium rounded-full border font-mono transition-colors duration-300 bg-gray-100 text-gray-700 border-gray-300 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
             >
               {{ item }}
             </li>
@@ -74,32 +62,27 @@ const languages = [
       <!-- Education & languages -->
       <div
         v-motion="motionReveal(50)"
-        :class="[
-          'mt-6 border p-6 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 transition-[border-color,background-color] duration-300',
-          resolvedTheme === 'dark'
-            ? 'border-gray-800 bg-gray-900/50 hover:border-gray-700'
-            : 'border-gray-200 bg-white hover:border-gray-300'
-        ]"
+        class="mt-6 border p-6 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 transition-[border-color,background-color] duration-300 border-gray-200 bg-white hover:border-gray-300 dark:border-gray-800 dark:bg-gray-900/50 dark:hover:border-gray-700"
       >
         <div>
-          <h3 :class="['text-sm font-semibold font-mono mb-2 transition-colors duration-300', resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-700']">
+          <h3 class="text-sm font-semibold font-mono mb-2 transition-colors duration-300 text-gray-700 dark:text-gray-400">
             Education
           </h3>
-          <p :class="['font-semibold transition-colors duration-300', resolvedTheme === 'dark' ? 'text-white' : 'text-gray-900']">
+          <p class="font-semibold transition-colors duration-300 text-gray-900 dark:text-white">
             {{ education.school }}
           </p>
-          <p :class="['transition-colors duration-300', resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700']">
+          <p class="transition-colors duration-300 text-gray-700 dark:text-gray-300">
             {{ education.degree }}
           </p>
           <p class="text-sm text-gray-500 font-mono">{{ education.location }} · {{ education.period }}</p>
         </div>
         <div>
-          <h3 :class="['text-sm font-semibold font-mono mb-2 transition-colors duration-300', resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-700']">
+          <h3 class="text-sm font-semibold font-mono mb-2 transition-colors duration-300 text-gray-700 dark:text-gray-400">
             Languages
           </h3>
-          <ul :class="['space-y-1 transition-colors duration-300', resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700']">
+          <ul class="space-y-1 transition-colors duration-300 text-gray-700 dark:text-gray-300">
             <li v-for="lang in languages" :key="lang.name">
-              <span :class="['font-semibold', resolvedTheme === 'dark' ? 'text-white' : 'text-gray-900']">{{ lang.name }}</span>
+              <span class="font-semibold text-gray-900 dark:text-white">{{ lang.name }}</span>
               <span class="text-gray-500"> · {{ lang.level }}</span>
             </li>
           </ul>

@@ -1,23 +1,10 @@
-<script setup lang="ts">
-const { resolvedTheme } = useTheme()
-</script>
-
 <template>
-  <footer :class="[
-    'border-t transition-colors duration-300',
-    resolvedTheme === 'dark' ? 'border-gray-800 bg-black' : 'border-gray-200 bg-white'
-  ]">
-    <div :class="[
-      'px-4 py-6 lg:mx-80 lg:border-x transition-colors duration-300',
-      resolvedTheme === 'dark' ? 'lg:border-gray-800' : 'lg:border-gray-200'
-    ]">
+  <footer class="border-t transition-colors duration-300 border-gray-200 bg-white dark:border-gray-800 dark:bg-black">
+    <div class="px-4 py-6 lg:mx-80 lg:border-x transition-colors duration-300 lg:border-gray-200 dark:lg:border-gray-800">
       <GitHubStats />
     </div>
 
-    <div :class="[
-      'px-4 py-8 lg:mx-80 lg:border-x border-t flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 transition-colors duration-300',
-      resolvedTheme === 'dark' ? 'lg:border-gray-800 border-gray-800' : 'lg:border-gray-200 border-gray-200'
-    ]">
+    <div class="px-4 py-8 lg:mx-80 lg:border-x border-t flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 transition-colors duration-300 lg:border-gray-200 border-gray-200 dark:lg:border-gray-800 dark:border-gray-800">
       <div>
         <div class="text-lg font-medium font-mono mb-1">Atelier Heloir</div>
         <div class="text-sm text-gray-500">© 2025 All rights reserved</div>
@@ -25,17 +12,11 @@ const { resolvedTheme } = useTheme()
       <div class="flex gap-4 items-center">
         <NuxtLink
           to="/dotenv"
-          :class="[
-            'text-sm hover:opacity-70 transition-colors duration-200 px-1',
-            resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-600'
-          ]"
+          class="text-sm hover:opacity-70 transition-colors duration-200 px-1 text-gray-600 dark:text-gray-400"
         >
           .dotenv
         </NuxtLink>
-        <div :class="[
-          'w-px h-6 flex-shrink-0',
-          resolvedTheme === 'dark' ? 'bg-gray-700' : 'bg-gray-300'
-        ]"></div>
+        <div class="w-px h-6 flex-shrink-0 bg-gray-300 dark:bg-gray-700"></div>
         <a
           href="https://github.com/aloish"
           target="_blank"
@@ -45,10 +26,7 @@ const { resolvedTheme } = useTheme()
         >
           <Icon
             name="uil:github"
-            :class="[
-              'w-6 h-6',
-              resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'
-            ]"
+            class="w-6 h-6 text-gray-700 dark:text-gray-300"
           />
         </a>
 
@@ -61,10 +39,7 @@ const { resolvedTheme } = useTheme()
         >
           <Icon
             name="uil:linkedin"
-            :class="[
-              'w-6 h-6',
-              resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'
-            ]"
+            class="w-6 h-6 text-gray-700 dark:text-gray-300"
           />
         </a>
       </div>

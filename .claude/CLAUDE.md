@@ -55,6 +55,7 @@ app.vue (root)
 - Use `<script setup lang="ts">` when script needed
 - Prefer template-only components (no unnecessary scripts)
 - Composition API only (`useHead()`, etc.)
+- Theme switcher uses `useColorMode()`; anything showing the *resolved* mode must be wrapped in `<ColorScheme>` (client-only)
 
 ### Styling
 
@@ -62,6 +63,7 @@ app.vue (root)
 - **Responsive**: Primary breakpoint `lg:`
 - **Spacing**: Consistent px-4, py-2, py-4 patterns
 - **Colors**: Black/gray/white palette with hover states
+- **Theming**: `@nuxtjs/color-mode` toggles a `dark` class on `<html>` before first paint (storage key `theme`, follows system by default). Style with `dark:` variants only. Never branch classes on a theme ref at runtime: SSR cannot know the theme and it flashes.
 
 ### Accessibility
 

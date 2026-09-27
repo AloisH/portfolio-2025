@@ -1,33 +1,28 @@
 <script setup lang="ts">
-const { theme, toggleTheme } = useTheme()
+const colorMode = useColorMode()
 
-const themeIcon = computed(() => theme.value === 'dark' ? 'uil:moon' : 'uil:sun')
-const themeLabel = computed(() => theme.value === 'dark' ? 'Dark' : 'Light')
+const isDark = computed(() => colorMode.value === 'dark')
+const toggleTheme = () => {
+  colorMode.preference = isDark.value ? 'light' : 'dark'
+}
 </script>
 
 <template>
   <button
+    type="button"
+    aria-label="Toggle colour theme"
+    class="group relative flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-all duration-200 hover:scale-105 backdrop-blur-sm border-gray-300 hover:border-gray-400 bg-gray-100/50 dark:border-gray-700 dark:hover:border-gray-500 dark:bg-gray-900/50"
     @click="toggleTheme"
-    :aria-label="`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`"
-    :class="[
-      'group relative flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-all duration-200 hover:scale-105 backdrop-blur-sm',
-      theme === 'dark'
-        ? 'border-gray-700 hover:border-gray-500 bg-gray-900/50'
-        : 'border-gray-300 hover:border-gray-400 bg-gray-100/50'
-    ]"
   >
-    <Icon
-      :name="themeIcon"
-      :class="[
-        'w-5 h-5 transition-transform group-hover:rotate-12',
-        theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
-      ]"
-    />
-    <span :class="[
-      'text-xs font-mono hidden sm:inline',
-      theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
-    ]">
-      {{ themeLabel }}
-    </span>
+    <!-- The server does not know the resolved mode, so icon + label render client-side only -->
+    <ColorScheme tag="span" placeholder-tag="span" placeholder="" class="flex items-center gap-2">
+      <Icon
+        :name="isDark ? 'uil:moon' : 'uil:sun'"
+        class="w-5 h-5 transition-transform group-hover:rotate-12 text-gray-700 dark:text-gray-300"
+      />
+      <span class="text-xs font-mono hidden sm:inline text-gray-700 dark:text-gray-300">
+        {{ isDark ? 'Dark' : 'Light' }}
+      </span>
+    </ColorScheme>
   </button>
 </template>

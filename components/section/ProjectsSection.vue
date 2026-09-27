@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const { resolvedTheme } = useTheme()
 
 interface Project {
   name: string
@@ -109,27 +108,16 @@ const projects: Project[] = [
   }
 ]
 
-const cardClasses = computed(() => [
-  'border transition-[border-color,background-color,box-shadow,translate] duration-300 hover:-translate-y-1 p-6',
-  resolvedTheme.value === 'dark'
-    ? 'border-gray-800 hover:border-gray-700 bg-gray-900/50 hover:bg-gray-900/80 hover:shadow-lg'
-    : 'border-gray-200 hover:border-gray-300 bg-white hover:bg-gray-50 hover:shadow-lg'
-])
+const cardClasses = 'border transition-[border-color,background-color,box-shadow,translate] duration-300 hover:-translate-y-1 p-6 border-gray-200 hover:border-gray-300 bg-white hover:bg-gray-50 hover:shadow-lg dark:border-gray-800 dark:hover:border-gray-700 dark:bg-gray-900/50 dark:hover:bg-gray-900/80'
 
-const tagClasses = computed(() => [
-  'px-3 py-1 text-xs font-medium rounded-full border font-mono transition-colors duration-300',
-  resolvedTheme.value === 'dark' ? 'bg-gray-800 text-gray-300 border-gray-700' : 'bg-gray-100 text-gray-700 border-gray-300'
-])
+const tagClasses = 'px-3 py-1 text-xs font-medium rounded-full border font-mono transition-colors duration-300 bg-gray-100 text-gray-700 border-gray-300 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700'
 </script>
 
 <template>
   <SectionTemplate id="projects">
     <div class="px-4 py-8">
-      <h2 :class="[
-        'text-sm font-semibold tracking-widest mb-8 font-mono transition-colors duration-300',
-        resolvedTheme === 'dark' ? 'text-gray-500' : 'text-gray-600'
-      ]">
-        <span :class="resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-700'">02</span>
+      <h2 class="text-sm font-semibold tracking-widest mb-8 font-mono transition-colors duration-300 text-gray-600 dark:text-gray-500">
+        <span class="text-gray-700 dark:text-gray-400">02</span>
         <span class="text-gray-600">//</span> projects.json
       </h2>
 
@@ -142,10 +130,10 @@ const tagClasses = computed(() => [
         <div class="relative">
           <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-2 mb-4">
             <div>
-              <h3 :class="['text-xl font-semibold transition-colors duration-300', resolvedTheme === 'dark' ? 'text-white' : 'text-gray-900']">
+              <h3 class="text-xl font-semibold transition-colors duration-300 text-gray-900 dark:text-white">
                 {{ featured.name }}
               </h3>
-              <p :class="['text-lg transition-colors duration-300', resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-600']">
+              <p class="text-lg transition-colors duration-300 text-gray-600 dark:text-gray-400">
                 {{ featured.kind }}
               </p>
             </div>
@@ -154,12 +142,12 @@ const tagClasses = computed(() => [
               <span class="text-sm text-gray-500 font-mono">In production</span>
             </div>
           </div>
-          <p :class="['leading-relaxed mb-3 transition-colors duration-300', resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700']">
+          <p class="leading-relaxed mb-3 transition-colors duration-300 text-gray-700 dark:text-gray-300">
             {{ featured.description }}
           </p>
-          <ul :class="['space-y-2 mb-4 transition-colors duration-300', resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700']">
+          <ul class="space-y-2 mb-4 transition-colors duration-300 text-gray-700 dark:text-gray-300">
             <li v-for="highlight in featured.highlights" :key="highlight" class="flex items-start gap-2">
-              <span aria-hidden="true" :class="['shrink-0 select-none', resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-600']">→</span>
+              <span aria-hidden="true" class="shrink-0 select-none text-gray-600 dark:text-gray-400">→</span>
               <span>{{ highlight }}</span>
             </li>
           </ul>
@@ -178,7 +166,7 @@ const tagClasses = computed(() => [
           :class="[cardClasses, 'flex flex-col']"
         >
           <div class="flex items-start justify-between gap-3">
-            <h3 :class="['text-lg font-semibold transition-colors duration-300', resolvedTheme === 'dark' ? 'text-white' : 'text-gray-900']">
+            <h3 class="text-lg font-semibold transition-colors duration-300 text-gray-900 dark:text-white">
               {{ project.name }}
             </h3>
             <div v-if="project.github || project.live" class="flex items-center gap-2 flex-shrink-0">
@@ -190,7 +178,7 @@ const tagClasses = computed(() => [
                 :aria-label="`${project.name} on GitHub`"
                 class="hover:opacity-70 hover:scale-110 transition-all duration-200"
               >
-                <Icon name="uil:github" :class="['w-5 h-5', resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-600']" />
+                <Icon name="uil:github" class="w-5 h-5 text-gray-600 dark:text-gray-400" />
               </a>
               <a
                 v-if="project.live"
@@ -200,12 +188,12 @@ const tagClasses = computed(() => [
                 :aria-label="`${project.name} live site`"
                 class="hover:opacity-70 hover:scale-110 transition-all duration-200"
               >
-                <Icon name="uil:external-link-alt" :class="['w-5 h-5', resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-600']" />
+                <Icon name="uil:external-link-alt" class="w-5 h-5 text-gray-600 dark:text-gray-400" />
               </a>
             </div>
           </div>
           <p class="text-sm text-gray-500 font-mono mb-3">{{ project.kind }}</p>
-          <p :class="['text-sm leading-relaxed flex-1 mb-4 transition-colors duration-300', resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700']">
+          <p class="text-sm leading-relaxed flex-1 mb-4 transition-colors duration-300 text-gray-700 dark:text-gray-300">
             {{ project.description }}
           </p>
           <div class="flex flex-wrap gap-2">

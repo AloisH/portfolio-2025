@@ -4,8 +4,15 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxt/icon', '@nuxt/image', '@vueuse/motion/nuxt', 'nuxt-shiki'],
+  modules: ['@nuxt/icon', '@nuxt/image', '@vueuse/motion/nuxt', 'nuxt-shiki', '@nuxtjs/color-mode'],
   css: ['~/app.css'],
+
+  colorMode: {
+    classSuffix: '',
+    preference: 'system',
+    fallback: 'dark',
+    storageKey: 'theme'
+  },
 
   shiki: {
     bundledLangs: ['bash', 'zsh', 'fish', 'json', 'yaml', 'toml', 'vim', 'markdown', 'typescript', 'javascript'],
@@ -22,17 +29,9 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      // Runs before first paint. SSR/prerender always renders the dark theme; when the visitor
-      // stored "light", hide the body and disable transitions until useTheme().initTheme() flips
-      // the state and reveals the page. Fallback after 10s (dev hydration is slow) reveals the
-      // dark SSR page consistently instead of dark markup on a white root.
-      script: [
-        {
-          key: 'theme-init',
-          tagPriority: 'critical',
-          innerHTML: "(function(){try{if(localStorage.getItem('theme')!=='light')return;var h=document.documentElement,s=document.createElement('style');s.id='theme-pending';s.textContent='body{visibility:hidden}*,*::before,*::after{transition:none!important}';document.head.appendChild(s);h.style.backgroundColor='#fff';h.style.colorScheme='light';setTimeout(function(){var e=document.getElementById('theme-pending');if(!e)return;e.remove();h.style.removeProperty('background-color');h.style.removeProperty('color-scheme')},10000)}catch(e){}})();"
-        }
-      ],
+      // Theme colours live on <body>; @nuxtjs/color-mode toggles the `dark` class on <html>
+      // before first paint, so SSR markup is theme-agnostic and there is no flash.
+      bodyAttrs: { class: 'bg-white text-gray-900 dark:bg-black dark:text-white transition-colors duration-300' },
       link: [
         { rel: 'dns-prefetch', href: 'https://www.linkedin.com' },
         { rel: 'dns-prefetch', href: 'https://github.com' },

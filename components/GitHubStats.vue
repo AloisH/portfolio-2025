@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const { resolvedTheme } = useTheme();
 
 const stats = ref({
   repos: 0,
@@ -47,10 +46,7 @@ onMounted(async () => {
       href="https://github.com/aloish"
       target="_blank"
       rel="noopener noreferrer"
-      :class="[
-        'inline-flex items-center gap-2 mb-4 font-mono text-sm font-medium transition-colors hover:opacity-70',
-        resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-600'
-      ]"
+      class="inline-flex items-center gap-2 mb-4 font-mono text-sm font-medium transition-colors hover:opacity-70 text-gray-600 dark:text-gray-400"
     >
       <Icon name="uil:github" class="w-5 h-5" />
       <span>GitHub Activity</span>
@@ -61,12 +57,7 @@ onMounted(async () => {
 
     <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
     <div
-      :class="[
-        'flex flex-col p-4 backdrop-blur-sm transition-colors hover:border-purple-500/50',
-        resolvedTheme === 'dark'
-          ? 'border border-gray-800 bg-gray-900/50'
-          : 'border border-gray-200 bg-gray-50',
-      ]"
+      class="flex flex-col p-4 backdrop-blur-sm transition-colors hover:border-purple-500/50 border border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-900/50"
     >
       <div
         class="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text font-mono text-2xl font-bold text-transparent"
@@ -76,12 +67,7 @@ onMounted(async () => {
       <div class="mt-1 font-mono text-xs text-gray-500">Public Repos</div>
     </div>
     <div
-      :class="[
-        'flex flex-col p-4 backdrop-blur-sm transition-colors hover:border-orange-500/50',
-        resolvedTheme === 'dark'
-          ? 'border border-gray-800 bg-gray-900/50'
-          : 'border border-gray-200 bg-gray-50',
-      ]"
+      class="flex flex-col p-4 backdrop-blur-sm transition-colors hover:border-orange-500/50 border border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-900/50"
     >
       <div
         class="bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text font-mono text-2xl font-bold text-transparent"
@@ -91,12 +77,7 @@ onMounted(async () => {
       <div class="mt-1 font-mono text-xs text-gray-500">Contributions</div>
     </div>
     <div
-      :class="[
-        'flex flex-col p-4 backdrop-blur-sm transition-colors hover:border-pink-500/50',
-        resolvedTheme === 'dark'
-          ? 'border border-gray-800 bg-gray-900/50'
-          : 'border border-gray-200 bg-gray-50',
-      ]"
+      class="flex flex-col p-4 backdrop-blur-sm transition-colors hover:border-pink-500/50 border border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-900/50"
     >
       <div
         class="bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text font-mono text-2xl font-bold text-transparent"
@@ -106,12 +87,7 @@ onMounted(async () => {
       <div class="mt-1 font-mono text-xs text-gray-500">GitHub Stars</div>
     </div>
     <div
-      :class="[
-        'flex flex-col p-4 backdrop-blur-sm transition-colors hover:border-blue-500/50',
-        resolvedTheme === 'dark'
-          ? 'border border-gray-800 bg-gray-900/50'
-          : 'border border-gray-200 bg-gray-50',
-      ]"
+      class="flex flex-col p-4 backdrop-blur-sm transition-colors hover:border-blue-500/50 border border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-900/50"
     >
       <div
         class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text font-mono text-2xl font-bold text-transparent"

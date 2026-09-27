@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const { resolvedTheme } = useTheme()
-
 useHead(() => ({
   title: "Aloïs Heloir - Portfolio 2025",
   htmlAttrs: {
@@ -19,7 +17,8 @@ useHead(() => ({
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: "Aloïs Heloir - Portfolio 2025" },
     { name: "twitter:description", content: "Senior Full-Stack Product Engineer · TypeScript, React, React Native, NestJS, Elixir" },
-    { name: "theme-color", content: resolvedTheme.value === 'dark' ? "#000000" : "#ffffff" }
+    { name: "theme-color", content: "#ffffff", media: "(prefers-color-scheme: light)" },
+    { name: "theme-color", content: "#000000", media: "(prefers-color-scheme: dark)" }
   ],
   link: [
     { rel: 'icon', type: 'image/svg+xml', href: '/logo-dark.svg' }

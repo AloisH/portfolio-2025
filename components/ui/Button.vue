@@ -9,8 +9,6 @@ const props = withDefaults(defineProps<{
   size: 'default'
 })
 
-const { resolvedTheme } = useTheme()
-
 const wrapperClasses = computed(() => {
   if (props.variant === 'primary') {
     return 'rainbow-border p-[2px]'
@@ -20,13 +18,11 @@ const wrapperClasses = computed(() => {
 
 const baseClasses = 'inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none'
 
-const variantClasses = computed(() => ({
-  primary: resolvedTheme.value === 'dark'
-    ? 'bg-black text-white hover:shadow-lg hover:shadow-purple-500/50 w-full h-full'
-    : 'bg-white text-black hover:shadow-lg hover:shadow-blue-500/50 w-full h-full',
+const variantClasses = {
+  primary: 'bg-white text-black hover:shadow-lg hover:shadow-blue-500/50 w-full h-full dark:bg-black dark:text-white dark:hover:shadow-purple-500/50',
   secondary: 'border border-zinc-800 hover:border-zinc-700 focus:ring-zinc-700',
   ghost: 'hover:bg-zinc-900 focus:ring-zinc-800'
-}))
+}
 
 const sizeClasses = {
   sm: 'px-4 py-2 text-sm',
@@ -36,7 +32,7 @@ const sizeClasses = {
 
 const buttonClasses = computed(() => [
   baseClasses,
-  variantClasses.value[props.variant],
+  variantClasses[props.variant],
   sizeClasses[props.size]
 ].join(' '))
 </script>
