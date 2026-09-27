@@ -9,7 +9,7 @@ const { resolvedTheme } = useTheme()
         'text-sm font-semibold tracking-widest mb-8 font-mono transition-colors duration-300',
         resolvedTheme === 'dark' ? 'text-gray-500' : 'text-gray-600'
       ]">
-        <span :class="resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-700'">02</span>
+        <span :class="resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-700'">04</span>
         <span class="text-gray-600">//</span> testimonials.json
       </h2>
 

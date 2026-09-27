@@ -1,5 +1,7 @@
 <script setup lang="ts">
 const { resolvedTheme } = useTheme()
+
+const stack = ['TypeScript', 'React', 'React Native', 'NestJS', 'Elixir', 'PostgreSQL']
 </script>
 
 <template>
@@ -25,7 +27,7 @@ const { resolvedTheme } = useTheme()
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
           </span>
-          Available for opportunities
+          Senior Product Engineer @ PflegeNavi · Vienna, Austria
         </div>
         <h1 :class="[
           'text-5xl lg:text-6xl font-bold tracking-tight bg-clip-text text-transparent mb-4',
@@ -39,14 +41,29 @@ const { resolvedTheme } = useTheme()
           'text-xl lg:text-2xl mt-2 font-mono transition-colors duration-300',
           resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-600'
         ]">
-          Techlead & Senior Fullstack Developer
+          Senior Full-Stack Product Engineer
         </h2>
         <p :class="[
           'mt-4 max-w-2xl leading-relaxed transition-colors duration-300',
           resolvedTheme === 'dark' ? 'text-gray-500' : 'text-gray-600'
         ]">
-          Building innovative web solutions with Vue, Angular, and modern tooling. Passionate about clean code, team collaboration, and delivering exceptional user experiences.
+          Nearly 5 years shipping production software in healthcare, e-commerce and security.
+          I own products end to end, from architecture and delivery to deployment and first paying users.
+          Former team lead bringing testing culture, faster CI and AI-assisted engineering to the teams I join.
+          At home in correctness-critical domains: payments, auditability, GDPR and healthcare data.
         </p>
+        <ul class="mt-6 flex flex-wrap gap-2" aria-label="Core stack">
+          <li
+            v-for="tech in stack"
+            :key="tech"
+            :class="[
+              'px-3 py-1 text-xs font-medium rounded-full border font-mono transition-colors duration-300',
+              resolvedTheme === 'dark' ? 'bg-gray-900/60 text-gray-300 border-gray-800' : 'bg-gray-50 text-gray-700 border-gray-200'
+            ]"
+          >
+            {{ tech }}
+          </li>
+        </ul>
       </div>
 
       <div
@@ -62,6 +79,9 @@ const { resolvedTheme } = useTheme()
           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
           </svg>
+        </UiButton>
+        <UiButton href="#projects" variant="secondary">
+          Products & Projects
         </UiButton>
         <UiButton href="https://www.linkedin.com/in/alois-heloir/" target="_blank" variant="secondary">
           Get in touch

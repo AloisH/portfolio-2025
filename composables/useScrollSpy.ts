@@ -9,7 +9,7 @@ export const useScrollSpy = () => {
     isScrolled.value = window.scrollY > 50
 
     // Get all sections
-    const sections = ['hero', 'works', 'testimonials', 'contact']
+    const sections = ['hero', 'works', 'projects', 'skills', 'testimonials', 'contact']
     const scrollPosition = window.scrollY + 100 // Offset for better detection
 
     // Find active section

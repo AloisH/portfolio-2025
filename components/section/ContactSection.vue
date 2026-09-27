@@ -31,7 +31,7 @@ const { resolvedTheme } = useTheme()
       >
         <div>
           <div class="text-sm font-semibold tracking-widest mb-2 font-mono">
-            <span :class="resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-700'">03</span>
+            <span :class="resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-700'">05</span>
             <span class="text-gray-600">//</span>
             <span :class="resolvedTheme === 'dark' ? 'text-gray-400' : 'text-gray-700'"> contact.json</span>
           </div>

@@ -22,6 +22,8 @@ app.vue (root)
 ├── main
 │   ├── HeroSection → SectionTemplate
 │   ├── WorksSection → SectionTemplate
+│   ├── ProjectsSection → SectionTemplate
+│   ├── SkillsSection → SectionTemplate
 │   ├── TestimonialSection → SectionTemplate
 │   ├── ContactSection → SectionTemplate
 │   └── SectionTemplate (spacers)
@@ -33,15 +35,16 @@ app.vue (root)
 **SectionTemplate**: Reusable wrapper for all sections
 - Centered 256px bordered layout on `lg:` breakpoint
 - Slot-based content injection
-- Applied to Hero, Works, Testimonial, Contact
+- Applied to Hero, Works, Projects, Skills, Testimonial, Contact
 
 **Header/Footer**: Mirror components
 - Brand "Atelier Heloir"
 - Social links (GitHub, LinkedIn) with hover states
 - Responsive layout
 
-**Section Components**: Template-driven
-- Minimal/no script logic
+**Section Components**: Data-driven
+- Content (jobs, projects, skills) lives in typed arrays in `<script setup>`, rendered with `v-for`
+- Source of truth for content is the CV (`cv_alois_heloir.pdf`); keep both in sync
 - Semantic HTML (`<section>`, `<header>`, etc.)
 - Accessibility-first (aria-labels, alt text)
 
@@ -113,7 +116,9 @@ bun preview     # Preview production build
 │   ├── SectionTemplate.vue     # Section wrapper
 │   └── section/
 │       ├── HeroSection.vue     # Intro + CTA buttons
-│       ├── WorksSection.vue    # Employment history (5 positions)
+│       ├── WorksSection.vue    # Employment history (7 positions)
+│       ├── ProjectsSection.vue # Protocolys featured + 6 side projects
+│       ├── SkillsSection.vue   # Skill groups + education + languages
 │       ├── TestimonialSection.vue # 2-column testimonials
 │       └── ContactSection.vue  # CTA with gradient
 ├── public/                     # Static assets (avatars, logos, favicon)
@@ -145,8 +150,10 @@ Local deployment via docker-compose pulls pre-built image.
 
 ### Sections
 
-- **Hero**: Introduction, role, CTA buttons
-- **Works**: 5 employment positions (Ringana, Barracuda, Mantu, Epita, Padoa)
+- **Hero**: Senior Full-Stack Product Engineer, summary, core stack, CTA buttons
+- **Works**: 7 positions (PflegeNavi, Ringana, Barracuda, Mantu, Padoa, EPITA, CEOS-IT)
+- **Projects**: Protocolys (featured) + Capture CLI, Mini Agentic Harness, Protocol, Stud'Asso, ImalysRCP, Bistro, ZombsCastle
+- **Skills**: 8 skill groups, EPITA MSc, French/English
 - **Testimonials**: 2 endorsements with avatars
 - **Contact**: CTA section with dark gradient background
 
@@ -180,10 +187,10 @@ Local deployment via docker-compose pulls pre-built image.
 ## Stack Details
 
 **Tech mentioned in portfolio**:
-- Vue 2 → 3 migrations
-- Angular, NodeJS
-- C++, C#
-- PostgreSQL
+- TypeScript, React, React Native, NestJS, Elixir, PostgreSQL (core stack)
+- Vue 2 → 3 migrations, Nuxt, Angular
+- C++, C#/.NET, PHP
+- Claude Code / agentic workflows
 
 **Deployment**:
 - Bun runtime (faster than Node)
