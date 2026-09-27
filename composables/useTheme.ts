@@ -32,6 +32,7 @@ export const useTheme = () => {
       pending.remove()
     }
     document.documentElement.style.removeProperty('background-color')
+    document.documentElement.style.removeProperty('color-scheme')
   }
 
   return {
